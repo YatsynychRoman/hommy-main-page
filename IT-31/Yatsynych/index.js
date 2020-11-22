@@ -175,15 +175,13 @@ function emailCheck(e) {
         message.innerText = 'Correct E-mail';
         message.style.color = 'limeGreen';
     }
-
-
 }
 
 function phoneCheck(e) {
     let phoneNumberValue = e.target.value;
     const message = document.getElementById('phone-number-message');
 
-    if (typeof Number(phoneNumberValue) !== "number" || phoneNumberValue[0] !== '+' || phoneNumberValue.length !== 13) {
+    if (typeof Number(phoneNumberValue) !== "number" || phoneNumberValue[0] !== '+' || phoneNumberValue.length !== 13 || phoneNumberValue.length < 11) {
         message.innerText = 'Enter correct phone number';
         message.style.color = 'red';
     } else {
@@ -237,7 +235,7 @@ function passCompare(e) {
     const passConfirmValue = e.target.value;
     const message = document.getElementById('pass-confirm-message');
 
-     if(passConfirmValue && passConfirmValue !== passValue) {
+    if (passConfirmValue && passConfirmValue !== passValue) {
         message.innerText = 'Password mismatch';
         message.style.color = 'red'
         return null;
@@ -264,7 +262,7 @@ changeButton.addEventListener('click', () => {
     const search = document.getElementById('search');
     const switchImage = document.getElementById('switch-img');
 
-    if(switchImage.src.includes('day.png')) {
+    if (switchImage.src.includes('day.png')) {
         switchImage.src = './images/night.png ';
         changeButton.remove();
         searchDiv.append(changeButton);
